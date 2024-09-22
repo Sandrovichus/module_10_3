@@ -12,9 +12,9 @@ class Bank:
         self.lock.acquire()
         for i in range(100):
             debit = random.randint(50, 500)
-            self.balance += debit
             if self.balance >= 500 and self.lock.locked():
                 self.lock.release()
+            self.balance += debit
             print(f'Пополнение: {debit}. Баланс: {self.balance}')
             sleep(0.001)
 
